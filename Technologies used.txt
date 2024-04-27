@@ -1,0 +1,7 @@
+Front end: HTML,CSS ,JAVASCRIPT
+
+BACKEND: PHP
+
+Database: MYSQL
+
+Software:VS CODE,XAMPP SERVER

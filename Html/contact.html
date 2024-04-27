@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../CSS/contact.css">
+    
+    <script>
+        // Hide the preloader once the window has fully loaded
+        window.addEventListener("load", function () {
+            const preloader = document.getElementById("preloader");
+            preloader.style.opacity = "0"; // Fade out
+            setTimeout(() => {
+                preloader.style.display = "none"; // After fade out, hide the preloader
+            }, 500); // Timeout for fade-out transition
+        });
+    </script>
+</head>
+<body>
+    <h2>Contact Form</h2>
+    <form action="../Html/contact.php" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        
+
+       <!-- HTML -->
+        <!-- HTML -->
+<button class="form-button" role="button">
+    <span class="text">Button</span>
+  </button>
+
+
+  <!-- Pre-loader overlay with animation -->
+  <div id="preloader">
+    <div class="spinner"></div> <!-- Spinner element -->
+</div>
+  
+  
+    </form>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!-- This indicates that the document is an HTML5 document -->
+
+<html lang="en">
+<!-- Defines the language of the document as English -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Sets the character encoding to UTF-8, ensuring support for all characters -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Ensures compatibility with modern browsers, especially Internet Explorer edge rendering -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive to different screen sizes -->
+
+    <!-- ===== CSS Stylesheet Linking ===== -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Link to the external stylesheet for custom styles -->
+
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Link to Boxicons for additional icons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>"Cloud Explorer: A Responsive Web Interface for Cloud Services and IT Solutions"r</title>
+    <!-- The title of the web page, displayed in browser tabs and bookmarks -->
+</head>
+
+<body>
+    <!-- Main content of the page -->
+    <nav>
+        <!-- Navigation bar section -->
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <!-- Icon for opening the sidebar -->
+
+            <span class="logo navLogo"><a href="#"></a></span>
+            <!-- Placeholder for the logo with a link (currently empty) -->
+
+            <div class="menu">
+                <!-- Wrapper for menu items -->
+                <div class="logo-toggle">
+                    <!-- Nested logo and sidebar close button -->
+                    <span class="logo"><a href="#"></a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                    <!-- Icon for closing the sidebar -->
+                </div>
+
+                <ul class="nav-links">
+                    <!-- Navigation links -->
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <!-- Dark/light mode toggle and search box wrapper -->
+                <div class="dark-light">
+                    <!-- Dark/light mode icons -->
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                    <!-- Search box with toggle -->
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel'></i>
+                        <!-- Icon to cancel search -->
+                        <i class='bx bx-search search'></i>
+                        <!-- Icon to initiate search -->
+                    </div>
+
+                    <div class="search-field">
+                        <!-- Input field for search functionality -->
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section with introductory information -->
+    <section class="hero-section">
+        <div class="hero">
+            <h2>Cloud </h2>
+            <!-- Heading for the hero section -->
+
+            <p>
+                "The cloud" refers to servers that are accessed over the Internet, and the software and databases that run on those servers. Cloud servers are located in data centers all over the world. By using cloud computing, users and companies do not have to manage physical servers themselves or run software applications on their own machines..
+            </p>
+            <!-- Descriptive text for the hero section -->
+
+            <div class="buttons">
+                <!-- Buttons for actions in the hero section -->
+                <a href="#" class="join">Cloud World</a>
+                <!-- Join button -->
+                <a href="#" class="learn">Learn More</a>
+                <!-- Learn More button -->
+            </div>
+        </div>
+
+        <div class="img">
+            <!-- Image in the hero section -->
+            <img src="../Image/night sky.jpg" alt="hero image" />
+            <!-- Hero background image -->
+        </div>
+    </section>
+
+    <!-- New section with cards showcasing different items -->
+     
+   <h2> Design</h2>
+    <div class="container">
+        <!-- Wrapper for card sections -->
+    
+        <div class="card">
+            <!-- Individual card section -->
+            <h3 class="title"><i class="fa-brands fa-whatsapp" style="color: #63E6BE;"></i></h3>
+            <!-- Card title -->
+
+            <div class="bar">
+                <!-- Progress bar with filled and empty states -->
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+
+            <div class="circle">
+                <!-- SVG Circle for visual effect -->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Repeat for other cards with similar structure -->
+        <div class="card">
+            <h3 class="title"><i class="fa-solid fa-house" style="color: #74C0FC;"></i></h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="title"><i class="fa-solid fa-bars" style="color: #B197FC;"></i></h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="title"><i class="fa-solid fa-star fa-spin fa-spin-reverse" style="color: #FFD43B;"></i></h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second set of cards with a different structure -->
+    
+    <div class="card-list">
+        <!-- Wrapper for a different card layout -->
+        
+       
+        <a href="#" class="card-item">
+            
+            <img src="../Image/img-1.jpeg" alt="Developer">
+            <span class="developer">Aws</span>
+            <h3>"AWS is a comprehensive, evolving cloud computing platformIt includes  (IaaS),  (PaaS)".</h3>
+            
+            <div class="arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </a>
+  
+        <!-- Additional cards in a similar format -->
+        <a href="#" class="card-item">
+            <img src="../Image/image-2.png" alt="Designer">
+            <span class="designer">DevOps</span>
+            <h3>"DevOps is a methodology in the software development and IT industry".</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+
+        <a href="#" class="card-item">
+            <img src="../Image/azure.png" alt="Editor">
+            <span class="editor">Azure</span>
+            <h3>"Microsoft Azure, formerly known as Windows Azure, is Microsoft's public cloud computing platform."</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+    </div>
+   <section>
+
+     <!-- Footer section for contact and other useful links -->
+     <footer class="footer">
+        <div class="waves">
+            <!-- Decorative waves in the footer -->
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div the "wave3"></div>
+            <div id="wave4"></div>
+        </div>
+
+        <!-- Social media icons -->
+        <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+
+        <!-- Additional footer menu -->
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+            <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+            <li class="menu__item"><a class="menu__link" href="contact.html" target="_blank">Contact</a></li>
+
+        </ul>
+        
+        <!-- Footer copyright notice -->
+        <p>@copyright aviral 2024</p>
+    </footer>
+
+    <!-- Link to JavaScript scripts and Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+
+
+
+   </section>
+
+
+
+
+
+   
+    <!-- Link to external JavaScript script -->
+    <script src="../Javascript/script.js"></script>
+
+</body>
+</html>

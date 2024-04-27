@@ -1,0 +1,840 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ===== Global Reset and Font Setup ===== */
+* {
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+  box-sizing: border-box; /* Include padding and borders in element size */
+  font-family: 'Poppins', sans-serif; /* Use Poppins font throughout the page */
+  transition: all 0.4s ease; /* Smooth transition for all properties */
+}
+
+/* ===== Color Definitions Using CSS Variables ===== */
+:root {
+  --body-color: #E4E9F7; /* Light background color */
+  --nav-color: #c7fde3; /* Navigation bar color */
+  --side-nav: #010718; /* Sidebar background color */
+  --text-color:black; /* Default text color */
+  --search-bar:black; /* Search bar background color */
+  --search-text:black; /* Search bar text color */
+}
+
+/* ===== Light/Dark Mode Support for the Body ===== */
+body {
+  height: 100vh; /* Set body height to the full viewport */
+  background-color: #A7C5FA;
+}
+
+body.dark { /* Define color scheme for dark mode */
+  --body-color: #18191A; /* Dark body color */
+  --nav-color: #242526; /* Dark navigation bar color */
+  --side-nav: #242526; /* Dark sidebar color */
+  --text-color: #CCC; /* Light text color for contrast */
+  --search-bar: #242526; /* Dark search bar color */
+}
+
+/* ===== Navigation Bar Styles ===== */
+nav {
+  position: fixed; /* Fixed at the top of the viewport */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  height: 70px; /* Navigation bar height */
+  width: 100%; /* Full width */
+  background-color: var(--nav-color); /* Navigation bar background color */
+  z-index: 100; /* High z-index to ensure visibility */
+}
+
+body.dark nav {
+  border: 1px solid #393838; /* Border for dark mode navigation bar */
+}
+
+/* ===== Navigation Bar Content Layout ===== */
+nav .nav-bar {
+  position: relative; /* Relative positioning within the navigation bar */
+  height: 100%; /* Full height */
+  max-width: 1000px; /* Maximum width */
+  width: 100%; /* Full width */
+  background-color: var(--nav-color); /* Background color */
+  margin: 0 auto; /* Center align within the parent */
+  padding: 0 30px; /* Horizontal padding */
+  display: flex; /* Enable flex layout */
+  align-items: center; /* Vertical alignment */
+  justify-content: space-between; /* Space elements evenly */
+}
+
+/* ===== Sidebar Toggle Button for Smaller Screens ===== */
+nav .nav-bar .sidebarOpen {
+  color: var(--text-color); /* Text color for the sidebar toggle button */
+  font-size: 25px; /* Font size */
+  padding: 5px; /* Padding */
+  cursor: pointer; /* Cursor style to indicate interactivity */
+  display: none; /* Initially hidden */
+}
+
+@media (max-width: 790px) {
+  nav .nav-bar .sidebarOpen {
+    display: block; /* Display the toggle button on small screens */
+  }
+}
+
+
+
+/* ===== Navigation Links Configuration ===== */
+.nav-bar .nav-links {
+  display: flex; /* Flexible layout for navigation links */
+  align-items: center; /* Vertical alignment */
+}
+
+.nav-bar .nav-links li {
+  margin: 0 5px; /* Spacing between list items */
+  list-style: none; /* No list style */
+}
+
+.nav-links li a {
+  position: relative; /* Relative positioning for additional styling */
+  font-size: 18px; /* Increased font size for more emphasis */
+  font-weight: 700; /* Heavier font weight for boldness */
+  color: var(--text-color); /* Text color, can be adjusted for contrast */
+  text-decoration: none; /* No underline */
+  padding: 12px; /* Increased padding for better visual impact */
+  text-transform: uppercase; /* Converts text to uppercase for more prominence */
+  letter-spacing: 1px; /* Adds spacing between letters for readability */
+}
+
+
+/* ===== Hover Effects for Navigation Links ===== */
+.nav-links li a::before {
+  content: ''; /* Decorative dot on hover */
+  position: absolute; /* Positioned within the link */
+  left: 50%; /* Centered horizontally */
+  bottom: 0; /* At the bottom of the link */
+  transform: translateX(-50%); /* Centered */
+  height: 6px; /* Height of the dot */
+  width: 6px; /* Width of the dot */
+  border-radius: 50%; /* Rounded dot */
+  background-color: var(--text-color); /* Same color as text */
+  opacity: 0; /* Invisible by default */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-links li:hover a::before {
+  opacity: 1; /* Make the dot visible on hover */
+}
+
+/* ===== Dark/Light Mode and Search Box Layout ===== */
+.nav-bar .darkLight-searchBox {
+  display: flex; /* Flex layout for dark/light mode toggle and search */
+  align-items: center; /* Vertical alignment */
+}
+
+/* Toggle buttons for Dark/Light mode and Search */
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle {
+  height: 40px; /* Height for the toggle buttons */
+  width: 40px; /* Width for the toggle buttons */
+  display: flex; /* Flex layout */
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  margin: 0 5px; /* Spacing between elements */
+}
+
+/* Icons within the Dark/Light Mode Toggle and Search */
+.dark-light i,
+.searchToggle i {
+  position: absolute; /* Positioned within the toggle button */
+  color: var(--text-color); /* Default text color */
+  font-size: 22px; /* Font size for icons */
+  cursor: pointer; /* Indicate interactivity */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Dark/Light Mode Toggle Behavior */
+.dark-light i.sun {
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Non-interactive */
+}
+
+.dark-light.active i.sun {
+  opacity: 1; /* Visible when active */
+  pointer-events: auto; /* Interactive */
+}
+
+.dark-light.active i.moon {
+  opacity: 0; /* Hidden when sun is active */
+  pointer-events: none; /* Non-interactive */
+}
+
+/* Search Toggle Behavior */
+.searchToggle i.cancel {
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Non-interactive */
+}
+
+.searchToggle.active i.cancel {
+  opacity: 1; /* Visible when search is active */
+  pointer-events: auto; /* Interactive */
+}
+
+.searchToggle.active i.search {
+  opacity: 0; /* Hidden when cancel is active */
+  pointer-events: none; /* Non-interactive */
+}
+
+/* Search Box Configuration */
+.searchBox {
+  position: relative; /* Relative positioning within the parent */
+}
+
+/* Search Box Field */
+.searchBox .search-field {
+  position: absolute; /* Positioned relative to the search box */
+  bottom: -85px; /* Below the search box */
+  right: 5px; /* Aligned to the right edge */
+  height: 50px; /* Height of the search field */
+  width: 300px; /* Width of the search field */
+  display: flex; /* Flex layout */
+  align-items: center; /* Vertical alignment */
+  background-color: var(--nav-color); /* Background color */
+  padding: 3px; /* Padding */
+  border-radius: 6px; /* Rounded corners */
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Non-interactive by default */
+  transition: all 0.3s ease; /* Smooth transition for opening/closing */
+}
+
+.searchToggle.active ~ .search-field {
+  bottom: -74px; /* Adjusted position for active state */
+  opacity: 1; /* Visible when active */
+  pointer-events: auto; /* Interactive when active */
+}
+
+/* Decorative element for search field */
+.search-field::before {
+  content: ''; /* Decorative element for the search field */
+  position: absolute; /* Positioned within the search field */
+  right: 14px; /* Aligned to the right edge */
+  top: -4px; /* Positioned at the top */
+  height: 12px; /* Height of the element */
+  width: 12px; /* Width of the element */
+  background-color: var(--nav-color); /* Same color as the nav */
+  transform: rotate(-45deg); /* Diagonal orientation */
+  z-index: -1; /* Send it behind other elements */
+}
+
+/* Input Field in the Search Box */
+.search-field input {
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+  padding: 0 45px 0 15px; /* Padding */
+  outline: none; /* No outline */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size */
+  font-weight: 400; /* Normal font weight */
+  color: var(--search-text); /* Text color */
+  background-color: var(--search-bar); /* Background color */
+}
+
+body.dark .search-field input {
+  color: var(--text-color); /* Adjust text color for dark mode */
+}
+
+/* Icon within the Search Field */
+.search-field i {
+  position: absolute; /* Positioned within the search field */
+  color: var(--nav-color); /* Icon color */
+  right: 15px; /* Aligned to the right */
+  font-size: 22px; /* Font size */
+  cursor: pointer; /* Indicate interactivity */
+}
+
+body.dark .search-field i {
+  color: var(--text-color); /* Adjust icon color for dark mode */
+}
+
+/* ===== Media Queries for Responsive Design ===== */
+@media (max-width: 790px) {
+  nav .nav-bar .sidebarOpen {
+    display: block; /* Display sidebar toggle button for smaller screens */
+  }
+
+  /* Sidebar Configuration */
+  .menu {
+    position: fixed; /* Fixed position */
+    height: 100%; /* Full height */
+    width: 320px; /* Fixed width */
+    left: -100%; /* Hidden by default */
+    top: 0; /* Aligned to the top */
+    padding: 20px; /* Padding */
+    background-color: var(--side-nav); /* Sidebar background color */
+    z-index: 100; /* High z-index */
+    transition: all 0.4s ease; /* Smooth transition for opening/closing */
+  }
+
+  nav.active .menu {
+    left: 0; /* Sidebar is visible when nav is active */
+  }
+
+  /* Hide the logo when the sidebar is active */
+  nav.active .nav-bar .navLogo a {
+    opacity: 0; /* Make logo invisible */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  /* Sidebar Toggle Button and Navigation Links in the Sidebar */
+  .menu .logo-toggle {
+    display: block; /* Show the sidebar toggle */
+    width: 100%; /* Full width */
+    display: flex; /* Flex layout */
+    align-items: center; /* Vertical alignment */
+    justify-content: space-between; /* Space elements */
+  }
+
+  .logo-toggle .siderbarClose {
+    color: var(--text-color); /* Text color */
+    font-size: 24px; /* Font size */
+    cursor: pointer; /* Indicate interactivity */
+  }
+
+  .nav-bar .nav-links {
+    flex-direction: column; /* Column layout for sidebar */
+    padding-top: 30px; /* Padding at the top */
+  }
+
+  .nav-links li a {
+    display: block; /* Display as block */
+    margin-top: 20px; /* Spacing between links */
+  }
+}
+
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* Global styles - Resetting margins and setting default font */
+* {
+  margin: 0; /* Removes default margin from all elements */
+  padding: 0; /* Removes default padding from all elements */
+  box-sizing: border-box; /* Ensures padding and border are included in element size */
+  font-family: 'Poppins', sans-serif; /* Sets the default font for the whole document */
+}
+
+/* Hero Section - Configuration for the main section */
+.hero-section {
+  display: flex; /* Using flexbox for layout */
+  justify-content: space-evenly; /* Spaces child elements evenly */
+  align-items: center; /* Aligns child elements vertically in the center */
+  height: 95vh; /* Almost full viewport height */
+  padding: 0 15px; /* Horizontal padding */
+  max-width: 1200px; /* Limits maximum width */
+  margin: 0 auto; /* Centers the section horizontally */
+}
+
+/* Hero text styles */
+.hero {
+  max-width: 50%; /* Maximum width for the text */
+  color: #fff; /* White text color */
+}
+
+/* Styling for heading */
+.hero h2 {
+  font-size: 2.5rem; /* Large font size for heading */
+  margin-bottom: 20px; /* Spacing below heading */
+  color: hsl(0, 0%, 100%); /* White color */
+  font-weight: bold;
+}
+
+/* Styling for paragraph */
+.hero p {
+  font-size: 1.2rem; /* Medium font size for paragraph */
+  margin-bottom: 20px; /* Spacing below paragraph */
+  color: black; /* Black text color */
+  font-weight: bold;
+}
+
+/* Image styling within the hero section with a triangular clip-path */
+.img {
+  overflow: hidden; /* Ensures that clipped content doesn't overflow */
+  margin-top: -80px;
+  margin-left: 150px;
+}
+
+.img img {
+  width: 410px; /* Fixed width for the image */
+  height: 400px; /* Set height to match the width for a square shape */
+  object-fit: cover; /* Ensures the image fills the container */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangular clipping */
+ 
+}
+
+
+/* Button section within the hero */
+.buttons {
+  margin-top: 40px; /* Space above the buttons */
+}
+
+/* Styling for buttons */
+.buttons a {
+  text-decoration: none; /* No underline on links */
+  color: #fff; /* White text color */
+  padding: 12px 24px; /* Padding around text */
+  border-radius: 0.375rem; /* Rounded corners */
+  font-weight: 600; /* Bold text */
+  transition: 0.2s ease; /* Smooth transition for hover effects */
+  display: inline-block; /* Ensures it behaves like a block */
+}
+
+.buttons a:not(:last-child) {
+  margin-right: 15px; /* Adds spacing between multiple buttons */
+}
+
+/* Specific button styles */
+.join {
+  background-color: #47b2e4; /* Background color for the "Join" button */
+}
+
+.learn {
+  border: 1px solid #fff; /* Border style for the "Learn" button */
+  border-radius: 0.375rem; /* Rounded corners */
+}
+
+/* Hover effect for buttons */
+.buttons a:hover {
+  background-color: #47b2e4; /* Change background color on hover */
+}
+
+/* Hamburger Menu Styles for responsive navigation */
+#menu-toggle {
+  display: none; /* Hide the menu toggle by default */
+}
+
+#hamburger-btn {
+  font-size: 1.8rem; /* Large font size for the hamburger icon */
+  color: #fff; /* White color for the icon */
+  cursor: pointer; /* Cursor style indicates interactivity */
+  display: none; /* Hidden by default */
+  order: 1; /* Sets order within a flexbox layout */
+}
+
+/* Container with Absolute Positioning */
+.container {
+  position: absolute; /* Absolute position within parent */
+  height: 300px; /* Container height */
+  width: 600px; /* Container width */
+  top: 60px; /* Position from the top */
+  left: calc(50% - 300px); /* Centers the container horizontally */
+  display: flex; /* Uses flexbox layout */
+}
+
+/* Card Component - General styling for card components */
+.card {
+  display: flex; /* Uses flexbox layout */
+  height: 280px; /* Card height */
+  width: 200px; /* Card width */
+  background: linear-gradient(123deg, rgba(255,247,172,1) 0%, rgba(255,180,237,1) 96%); /* Background gradient */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: -1rem 0 3rem #000000; /* Shadow for depth */
+  transition: 0.4s ease-out; /* Smooth transition */
+  position: relative; /* Relative position within parent */
+  left: 0px; /* Initial horizontal position */
+  margin-top: 780px; /* Position from the top */
+}
+
+/* Offset for cards that are not the first child */
+.card:not(:first-child) {
+  margin-left: -50px; /* Negative margin to overlap with previous card */
+}
+
+/* Hover effects for cards */
+.card:hover {
+  transform: translateY(-20px); /* Moves the card upward on hover */
+  transition: 0.4s ease-out; /* Smooth transition */
+}
+
+.card:hover ~ .card {
+  position: relative; /* Relative position */
+  left: 50px; /* Shifts other cards to the right */
+  transition: 0.4s ease-out; /* Smooth transition */
+}
+
+/* Title styling within the card */
+.title {
+  color: white; /* White text color */
+  font-weight: 300; /* Light font weight */
+  position: absolute; /* Positioned within the card */
+  left: 20px; /* Horizontal position */
+  top: 15px; /* Vertical position */
+}
+
+h2{
+  margin-right: 100px;
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 50px;
+  font-weight: bold;  
+ 
+  color:#ff63dd;
+  animation: glow 2s infinite;
+  
+}
+
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px #63ff6b, 0 0 20px #63ff66, 0 0 30px #63ff97;
+  }
+  50% {
+    text-shadow: 0 0 20px #ff6363, 0 0 30px #ffc163, 0 0 40px #d063ff;
+  }
+}
+
+
+
+
+/* Bar within the card */
+.bar {
+  position: absolute; /* Positioned within the card */
+  top: 100px; /* Vertical position */
+  left: 20px; /* Horizontal position */
+  height: 5px; /* Bar height */
+  width: 150px; /* Bar width */
+}
+
+/* Empty bar within the card */
+.emptybar {
+  background-color: hsl(74, 74%, 48%); /* Light green background */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+}
+
+/* Filled bar for hover effects within the card */
+.filledbar {
+  position: absolute; /* Positioned within the bar */
+  top: 0px; /* Top position */
+  z-index: 3; /* Sets z-index for layering */
+  width: 0px; /* No width by default */
+  height: 100%; /* Full height */
+  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%); /* Gradient */
+  transition: 0.6s ease-out; /* Smooth transition */
+}
+
+/* Behavior when card is hovered */
+.card:hover .filledbar {
+  width: 120px; /* Expands the bar on hover */
+  transition: 0.4s ease-out; /* Smooth transition */
+}
+
+/* Circle within the card */
+.circle {
+  position: absolute; /* Positioned within the card */
+  top: 150px; /* Vertical position */
+  left: calc(50% - 60px); /* Centered horizontally */
+}
+
+/* Stroke for SVG elements within the card */
+.stroke {
+  stroke: white; /* White stroke color */
+  stroke-dasharray: 360; /* Total stroke path */
+  stroke-dashoffset: 360; /* Initially hidden */
+  transition: 0.6s ease-out; /* Smooth transition */
+}
+
+/* SVG styling */
+svg {
+  fill: #9d71f5; /* Default fill color */
+  stroke-width: 2px; /* Stroke thickness */
+}
+
+/* Stroke behavior on hover */
+.card:hover .stroke {
+  stroke-dashoffset: 100; /* Visible stroke on hover */
+  transition: 0.6s ease-out; /* Smooth transition */
+}
+
+/* Repeat global body styles with a different font */
+body {
+  font-family: 'Open Sans', sans-serif; /* Use Open Sans for the body */
+}
+
+/* Card Section Container - Background for card section */
+.cards-section {
+  padding: 20px; /* Padding around the card section */
+  background-color: #f8f8f8; /* Light gray background */
+}
+
+
+
+
+/* Card Grid Layout */
+.card-list {
+  display: grid; /* Creates a grid layout for the cards */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive column size */
+  max-width: 1250px; /* Maximum width for the grid */
+  margin: 150px auto; /* Centers the grid horizontally */
+  padding: 20px;
+  gap: 20px; /* Space between grid items */
+}
+
+/* Card Item */
+.card-list .card-item {
+  background: linear-gradient(123deg, rgba(255,247,172,1) 30%, rgba(240,22,206,0.5635504201680672) 34%);
+  padding: 26px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04); /* Subtle shadow */
+  list-style: none;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent; /* Transparent border initially */
+  transition: border 0.5s ease; /* Smooth border transition */
+  height: 500px; /* Fixed height */
+  width: 100%; /* Full width within the grid column */
+  margin-top: 500px;
+}
+
+/* Hover Effect for Card Border */
+.card-list .card-item:hover {
+  border: 2px solid #000; /* Changes border color on hover */
+}
+
+/* Card Image */
+.card-list .card-item img {
+  width: 100%; /* Full width for the image */
+  aspect-ratio: 16/9; /* Maintains aspect ratio */
+  border-radius: 8px; /* Rounded corners */
+  object-fit: cover; /* Ensures the image fills the area */
+}
+
+/* Category Span Styles */
+.card-list span {
+  display: inline-block;
+  background: #F7DFF5; /* Default background color */
+  margin-top: 32px;
+  padding: 8px 15px; /* Padding for the span */
+  font-size: 0.75rem; /* Font size */
+  border-radius: 50px; /* Circular style */
+  font-weight: 600; /* Bold text */
+}
+
+/* Specific Styles for Different Categories */
+.card-list .developer {
+  background-color: #F7DFF5; /* Developer-specific background color */
+  color: #B22485; /* Developer-specific text color */
+}
+
+.card-list .designer {
+  background-color: #d1e8ff; /* Designer-specific background color */
+  color: #2968a8; /* Designer-specific text color */
+}
+
+card-list .editor {
+  background-color: #d6f8d6; /* Editor-specific background color */
+  color: #205c20; /* Editor-specific text color */
+}
+
+/* Card Title */
+.card-item h3 {
+  color: #000; /* Black text color */
+  font-size: 10; /* Font size for the title */
+  margin-top: 28px; /* Top margin */
+  font-weight: 600; /* Bold text */
+}
+
+/* Arrow Icon in Card */
+.card-item .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center-align the arrow */
+  transform: rotate(-35deg); /* Tilted arrow */
+  height: 40px;
+  width: 40px; /* Size of the arrow container */
+  color: #000; /* Default color */
+  border: 1px solid #000; /* Black border */
+  border-radius: 50%; /* Circular shape */
+  margin-top: 40px; /* Margin from the top */
+  transition: 0.2s ease; /* Smooth transition */
+}
+
+/* Hover Effect for Arrow */
+.card-list .card-item:hover .arrow {
+  background: #000; /* Changes background color on hover */
+  color: #fff; /* Changes text color to white on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .card-list .card-item {
+    padding: 15px; /* Reduced padding for smaller screens */
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .card-list {
+    margin: 0 auto; /* Centers the grid horizontally on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-list {
+    grid-template-columns: 1fr; /* Stacks cards vertically */
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+/* Global Styles */
+* {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding and border in width calculations */
+  font-family: "Poppins", sans-serif; /* Use Poppins font throughout */
+}
+
+/* Footer Container */
+.footer {
+  position: relative; /* Allows child elements to be positioned relative to the footer */
+  width: 100%; /* Full width */
+  background: #3586ff; /* Blue background color */
+  min-height: 100px; /* Minimum height for the footer */
+  padding: 20px 50px; /* Padding around the content */
+  display: flex; /* Enable flexible layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  flex-direction: column; /* Arrange content in a column */
+}
+
+/* Social Icons and Menu Containers */
+.social-icon,
+.menu {
+  position: relative; /* Relative positioning within the footer */
+  display: flex; /* Flex layout for even spacing */
+  justify-content: center; /* Center align */
+  align-items: center; /* Vertical alignment */
+  margin: 10px 0; /* Vertical margin */
+  flex-wrap: wrap; /* Allow wrapping if necessary */
+}
+
+/* Social Icons and Menu Items */
+.social-icon__item,
+.menu__item {
+  list-style: none; /* Remove default list styling */
+}
+
+/* Social Icon Links */
+.social-icon__link {
+  font-size: 2rem; /* Large font size for social icons */
+  color: #fff; /* White color */
+  margin: 0 10px; /* Horizontal spacing */
+  display: inline-block; /* Display as inline block */
+  transition: 0.5s; /* Smooth transition */
+}
+
+.social-icon__link:hover {
+  transform: translateY(-10px); /* Lift the icon on hover */
+}
+
+/* Menu Links */
+.menu__link {
+  font-size: 1.2rem; /* Font size for menu links */
+  color: #fff; /* White color */
+  margin: 0 10px; /* Horizontal spacing */
+  display: inline-block; /* Display as inline block */
+  transition: 0.5s; /* Smooth transition */
+  text-decoration: none; /* Remove underlining */
+  opacity: 0.75; /* Default opacity for a subtle look */
+  font-weight: 300; /* Light font weight */
+}
+
+.menu__link:hover {
+  opacity: 1; /* Increase opacity on hover */
+}
+
+/* Footer Text */
+.footer p {
+  color: #fff; /* White text color */
+  margin: 15px 0 10px 0; /* Top, bottom margins */
+  font-size: 1rem; /* Font size */
+  font-weight: 300; /* Light font weight */
+}
+
+/* Wave Backgrounds */
+.wave {
+  position: absolute; /* Allows waves to be positioned absolutely within the footer */
+  top: -100px; /* Position above the footer */
+  left: 0; /* Align to the left edge */
+  width: 100%; /* Full width */
+  height: 100px; /* Fixed height */
+  background: url("https://i.ibb.co/wQZVxxk/wave.png"); /* Wave image background */
+  background-size: 1000px 100px; /* Size of the background */
+}
+
+/* Individual Wave Styles */
+.wave#wave1 {
+  z-index: 1000; /* High z-index for stacking order */
+  opacity: 1; /* Full opacity */
+  bottom: 0; /* Position at the bottom */
+  animation: animateWaves 4s linear infinite; /* Continuous animation */
+}
+
+.wave#wave2 {
+  z-index: 999; /* Lower stacking order */
+  opacity: 0.5; /* Semi-transparent */
+  bottom: 10px; /* Offset from the bottom */
+  animation: animate 4s linear infinite; /* Continuous animation */
+}
+
+.wave#wave3 {
+  z-index: 1000; /* High z-index */
+  opacity: 0.2; /* Very transparent */
+  bottom: 15px; /* Offset from the bottom */
+  animation: animateWaves 3s linear infinite; /* Faster animation */
+}
+
+.wave#wave4 {
+  z-index: 999; /* Lower z-index */
+  opacity: 0.7; /* Semi-transparent */
+  bottom: 20px; /* Offset from the bottom */
+  animation: animate 3s linear infinite; /* Faster animation */
+}
+
+/* Animation for Waves Moving Left to Right */
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px; /* Start from the right */
+  }
+  100% {
+    background-position-x: 0px; /* Move to the left */
+  }
+}
+
+/* Animation for Waves Moving Right to Left */
+@keyframes animate {
+  0% {
+    background-position-x: -1000px; /* Start from the left */
+  }
+  100% {
+    background-positon-x: 0px; /* Move to the right */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
